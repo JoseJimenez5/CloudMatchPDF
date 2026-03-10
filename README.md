@@ -1,2 +1,3 @@
 # CloudMatchPDF
-Python toolkit for generating and compiling LaTeX documents using cloud engines.
+CloudMatchPDF
+A Python library for programmatic LaTeX generation and cloud compilation.
