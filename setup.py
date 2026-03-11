@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="mathpdf",
+    name="symtex",
     version="0.1.2",
     author="Jose Jimenez",
     author_email="jose.jimenez05@epn.edu.ec", 
