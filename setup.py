@@ -1,19 +1,21 @@
-<<<<<<< HEAD
 from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="cloudmatchpdf",
-    version="0.1.1",
+    name="CloudMatchPDF",
+    version="1.0.3",  
     author="Jose Jimenez",
-    author_email="jose.jimenez05@epn.edu.ec", 
+    author_email="jose.jimenez05@epn.edu.ec, jvjimenez5@espe.edu.ec", 
     description="Framework de generación de reportes LaTeX científicos vía Cloud",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/JoseJimenez5/CloudMatchPDF", 
-    packages=find_packages(),
+    
+    package_dir={"": "src"},
+    packages=find_packages(where="src"),
+
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -32,21 +34,4 @@ setup(
     },
     python_requires=">=3.8",
     include_package_data=True,
-=======
-from setuptools import setup, find_packages
-
-setup(
-    name="cloudmatchpdf",
-    version="0.1.0",
-    author="Jose Jimenez",
-    description="Motor de generación y compilación de LaTeX en la nube para Física y Data Science",
-    packages=find_packages(),
-    install_requires=[
-        "requests",
-        "sympy",
-        "matplotlib",
-        "numpy"
-    ],
-    python_requires=">=3.8",
->>>>>>> e2e3f6ca01312c8fc5849a8c5f4003e3c43894bb
 )
