@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CloudMatchPDF
 CloudMatchPDF
 A Python library for programmatic LaTeX generation and cloud compilation.
@@ -82,4 +81,4 @@ pytest tests/
 
 ##  Licencia y Créditos
 Desarrollado por **Jose Jimenez**. Proyecto enfocado en la excelencia académica y la automatización científica.
->>>>>>> e2e3f6ca01312c8fc5849a8c5f4003e3c43894bb
+
