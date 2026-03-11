@@ -4,8 +4,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="pylatexgen",
-    version="0.3.2",
+    name="CloudMathPDF",
+    version="1.3.1",
     author="Jose Jimenez",
     author_email="jose.jimenez05@epn.edu.ec", 
     description="Framework de generación de reportes LaTeX científicos vía Cloud",
