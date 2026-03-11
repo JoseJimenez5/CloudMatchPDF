@@ -17,6 +17,7 @@
 
 ```bash
 CloudMatchPDF/
+<<<<<<< HEAD
 ├── cloudmatchpdf/          # Core del Framework
 │   ├── latex_builder.py    # Arquitecto de documentos y Fluent API
 │   ├── latex_validator.py  # Sanitización y validación de sintaxis
@@ -24,6 +25,18 @@ CloudMatchPDF/
 ├── tests/                  # Suite de Pruebas Unitarias
 ├── outputs/                # Directorio de salida de documentos (PDFs)
 └── README.md
+=======
+├── src/                        # El contenedor de código fuente (obligatorio para el setup.py actual)
+│   └── cloudmatchpdf/          # El paquete real (lo que se importa)
+│       ├── __init__.py         # ¡FUNDAMENTAL! Expone las clases para importaciones limpias
+│       ├── latex_builder.py    # Arquitecto de documentos
+│       ├── latex_validator.py  # Sanitización y validación
+│       └── cloud_compiler.py   # Gestión de mirrors y peticiones API
+├── tests/                      # Suite de Pruebas Unitarias
+├── outputs/                    # Directorio de salida (ignorado en el empaquetado)
+├── setup.py                    # El mapa que apunta a src/
+├── pyproject.toml              # Estándar de construcción moderno
+└── README.md                   # Documentación técnica
 ```
 
 ---
