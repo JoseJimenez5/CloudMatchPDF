@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -31,4 +32,21 @@ setup(
     },
     python_requires=">=3.8",
     include_package_data=True,
+=======
+from setuptools import setup, find_packages
+
+setup(
+    name="cloudmatchpdf",
+    version="0.1.0",
+    author="Jose Jimenez",
+    description="Motor de generación y compilación de LaTeX en la nube para Física y Data Science",
+    packages=find_packages(),
+    install_requires=[
+        "requests",
+        "sympy",
+        "matplotlib",
+        "numpy"
+    ],
+    python_requires=">=3.8",
+>>>>>>> e2e3f6ca01312c8fc5849a8c5f4003e3c43894bb
 )
