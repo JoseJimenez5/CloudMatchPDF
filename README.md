@@ -24,7 +24,9 @@ CloudMatchPDF/
 ├── tests/                  # Suite de Pruebas Unitarias
 ├── outputs/                # Directorio de salida de documentos (PDFs)
 └── README.md
+
 ---
+
 ## Guía de Uso Rápido
 1. Instalación de Dependencias
 pip install sympy requests pytest
