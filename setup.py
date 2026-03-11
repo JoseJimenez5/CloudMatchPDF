@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="cloudlatex",
-    version="0.1.1",
+    version="0.1.2",
     author="Jose Jimenez",
     author_email="jose.jimenez05@epn.edu.ec", 
     description="Framework de generación de reportes LaTeX científicos vía Cloud",
