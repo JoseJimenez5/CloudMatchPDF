@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+env1/
+.pytest_cache/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.sln
+*.slnx
+*.suo
+
+# Distribución
+dist/
+build/
+*.egg-info/
+
+# Outputs
+*.pdf
+*.log

@@ -1,0 +1,15 @@
+# --- Core Math & Symbolic Computation ---
+sympy==1.12          # Motor de cálculo simbólico y generación de LaTeX
+numpy==1.26.4        # Soporte para estructuras numéricas y matrices
+
+# --- Cloud Infrastructure & API ---
+requests==2.31.0     # Gestión de peticiones HTTP a mirrors (GET/POST)
+urllib3==2.2.1       # Manejo de timeouts y reintentos de conexión
+
+# --- Quality Assurance & Testing ---
+pytest==8.0.2        # Framework de pruebas unitarias y de integración
+pytest-mock==3.12.0  # Mocking de respuestas HTTP para test_compiler
+
+# --- Utilities ---
+python-dotenv==1.0.1 
+logging-json==0.4.0  
