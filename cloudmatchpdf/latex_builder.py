@@ -84,10 +84,7 @@ class LatexBuilder:
         return self
 
     def add_math_block(self, latex_str: str, numbered: bool = False):
-        """
-        Inyecta un bloque matemático puro. 
-        Evita el uso de \mathtt o \text que rompen el renderizado.
-        """
+
         # Limpiamos posibles espacios en blanco laterales
         content = latex_str.strip()
         
