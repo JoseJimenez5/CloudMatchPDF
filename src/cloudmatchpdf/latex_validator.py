@@ -5,53 +5,45 @@ logger = logging.getLogger("cloudmatchpdf")
 
 class LatexValidator:
     @staticmethod
-    def process(source: str) -> str:
-        reparaciones = []
+    def analyze(source: str) -> bool:
+        """
+        Analyzes LaTeX source code for common pitfalls without modifying it.
+        Returns True if no critical issues are found, False otherwise.
+        """
+        issues = []
         lines = source.split('\n')
-        fixed_lines = []
-
-        # Regex para encontrar '_' que NO tengan '\' antes (Negative Lookbehind)
-        # Solo lo aplicaremos en condiciones muy específicas.
+        
+        # Regex for orphan underscores (Negative Lookbehind)
         underscore_pattern = re.compile(r'(?<!\\)_')
 
-        for line in lines:
+        for i, line in enumerate(lines, 1):
             line_content = line.strip()
             
-            # REGLAS DE EXCLUSIÓN (No tocar la línea si...)
-            # 1. Es un comando (\section, \usepackage, etc.)
-            # 2. Contiene delimitadores matemáticos ($, \[, \()
-            # 3. Está vacía
-            if not line_content or \
-               line_content.startswith('\\') or \
+            # Exclusion rules: Skip commands or math modes
+            if not line_content or line_content.startswith('\\') or \
                any(delim in line for delim in ['$', r'\[', r'\(', r'\]', r'\)']):
-                fixed_lines.append(line)
                 continue
 
-            # Si pasa los filtros, es texto plano. Buscamos guiones bajos huérfanos.
+            # Detect underscores in plain text
             if underscore_pattern.search(line):
-                new_line = underscore_pattern.sub(r'\_', line)
-                if new_line != line:
-                    reparaciones.append(f"Escape de '_' en texto: '{line_content[:15]}...' ")
-                    line = new_line
-            
-            fixed_lines.append(line)
+                issues.append(f"Line {i}: Raw underscore '_' detected in plain text. "
+                              f"This will likely cause a LaTeX compilation error.")
 
-        final_source = '\n'.join(fixed_lines)
-
-        # BALANCEO DE ENTORNOS (Solo inyecta si falta el cierre antes del final del documento)
-        # Esto previene el error "Emergency stop" de LaTeX
-        if "document" in final_source:
-            # Buscamos entornos abiertos vs cerrados (excluyendo 'document')
-            begins = re.findall(r"\\begin\{([^*][^}]+)\}", final_source)
-            ends = re.findall(r"\\end\{([^*][^}]+)\}", final_source)
+        # Environment balance check
+        if "document" in source:
+            begins = re.findall(r"\\begin\{([^*][^}]+)\}", source)
+            ends = re.findall(r"\\end\{([^*][^}]+)\}", source)
             
-            for env in reversed(begins):
+            for env in begins:
                 if env != "document" and env not in ends:
-                    final_source = final_source.replace(r"\end{document}", f"\\end{{{env}}}\n\\end{{document}}")
-                    reparaciones.append(f"Cierre de emergencia del entorno: {env}")
-                    ends.append(env) # Evita duplicar cierres
+                    issues.append(f"CRITICAL: Environment '\\begin{{{env}}}' is missing a closing '\\end{{{env}}}'.")
 
-        if reparaciones:
-            print(f"\n VALIDATOR: {len(reparaciones)} ajustes realizados.")
+        # Clinical Report Output
+        if issues:
+            print(f"\n{'!'*12} LATEX SYNTAX REVIEW {'!'*12}")
+            for issue in issues:
+                print(f"-> {issue}")
+            print(f"{'!'*46}\n")
+            return False 
         
-        return final_source
+        return True

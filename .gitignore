@@ -232,3 +232,4 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 >>>>>>> e2e3f6ca01312c8fc5849a8c5f4003e3c43894bb
+"__pycache__/"  "*.pdf"  "*.tex"  ".env" 

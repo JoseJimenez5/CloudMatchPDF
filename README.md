@@ -1,13 +1,13 @@
 # CloudMatchPDF: Scientific Reporting Framework
 
-**CloudMatchPDF** es un motor de automatización en Python diseñado para la generación de documentos $\LaTeX$ técnicos y académicos de alta precisión. El sistema integra el poder de **SymPy** para cálculo simbólico y **Matplotlib** para visualización vectorial, todo procesado mediante una infraestructura de compilación distribuida en la nube.
+**CloudMatchPDF** es un motor de automatización en Python diseñado para la generación de documentos LaTeX técnicos y académicos de alta precisión. El sistema integra el poder de **SymPy** para cálculo simbólico y **Matplotlib** para visualización vectorial, todo procesado mediante una infraestructura de compilación distribuida en la nube.
 
 ---
 
 ##  Características Principales
 
-* **LatexBuilder (The Architect):** Arquitecto de documentos con API fluida. Permite inyectar ecuaciones de SymPy, bloques de código y gráficas vectoriales sin tocar una sola línea de código $\LaTeX$.
-* **Integración Gráfica (Cloud-Safe):** Renderizado de funciones matemáticas y figuras de Matplotlib mediante primitivas vectoriales de $\LaTeX$, garantizando compatibilidad total con compiladores en la nube.
+* **LatexBuilder (The Architect):** Arquitecto de documentos con API fluida. Permite inyectar ecuaciones de SymPy, bloques de código y gráficas vectoriales sin tocar una sola línea de código LaTeX.
+* **Integración Gráfica (Cloud-Safe):** Renderizado de funciones matemáticas y figuras de Matplotlib mediante primitivas vectoriales de LaTeX, garantizando compatibilidad total con compiladores en la nube.
 * **LatexValidator (The Shield):** Sistema de autocuración sintáctica que sanitiza caracteres reservados y asegura la integridad de los entornos matemáticos antes de la compilación.
 * **CloudCompiler (The Bridge):** Motor de compilación asíncrona que utiliza *mirrors* distribuidos, eliminando la necesidad de instalaciones locales de TeX Live (+20GB).
 
@@ -57,7 +57,7 @@ Es el núcleo de la construcción lógica del documento. Soporta encadenamiento 
 * **`add_math_block(latex_str, numbered)`**: Inyecta bloques matemáticos puros con control de numeración.
 * **`add_plot(obj, caption, x_range)`**: 
     * **Funcionalidad:** Renderiza funciones matemáticas (como strings) o figuras de **Matplotlib** directamente en el PDF.
-    * **Mecánica:** Traduce los datos a lenguaje `picture` de $\LaTeX$ para un acabado vectorial perfecto.
+    * **Mecánica:** Traduce los datos a lenguaje `picture` de LaTeX para un acabado vectorial perfecto.
 
 #### Utilidades y Generación
 * **`import_file(path)`**: Importa contenido de archivos externos (.txt, .tex) directamente al cuerpo del reporte.
